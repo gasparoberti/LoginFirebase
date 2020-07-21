@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 123;
 
     List<AuthUI.IdpConfig> provider = Arrays.asList(
-            new AuthUI.IdpConfig.FacebookBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build(),
+            new AuthUI.IdpConfig.FacebookBuilder().build(),
             new AuthUI.IdpConfig.EmailBuilder().build()
     );
 
