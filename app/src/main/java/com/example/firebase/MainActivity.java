@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     List<AuthUI.IdpConfig> provider = Arrays.asList(
             new AuthUI.IdpConfig.GoogleBuilder().build(),
             new AuthUI.IdpConfig.FacebookBuilder().build(),
-            new AuthUI.IdpConfig.EmailBuilder().build()
+            new AuthUI.IdpConfig.EmailBuilder().build(),
+            new AuthUI.IdpConfig.GitHubBuilder().build()
     );
 
     @Override
