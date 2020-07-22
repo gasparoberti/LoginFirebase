@@ -69,12 +69,4 @@ public class LoginActivity extends AppCompatActivity {
         super.onPause();
         mfirebaseAuth.removeAuthStateListener(authStateListener);   //olvida la sesion
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == event.KEYCODE_BACK){
-            Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }
