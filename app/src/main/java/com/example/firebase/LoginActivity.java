@@ -27,20 +27,13 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 0;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
-    private Button btnSignOut;
     private Button btnSignIn;
-    private TextView txtEmail;
-    private TextView txtUser;
-    private ImageView imgProfile;
+    private ImageView imgLogo;
 
     List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.GoogleBuilder().build(),
             new AuthUI.IdpConfig.FacebookBuilder().build(),
             new AuthUI.IdpConfig.EmailBuilder().build()
-//            new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build(),
-//            new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
-//            new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
-//            new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()
             );
 
 
@@ -60,12 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         mAuth = FirebaseAuth.getInstance();
-        imgProfile = (ImageView) findViewById(R.id.imgProfile);
+        imgLogo = (ImageView) findViewById(R.id.imgLogo);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
-        btnSignOut = (Button) findViewById(R.id.btnSignOut);
-
-        txtEmail = (TextView) findViewById(R.id.txtEmail);
-        txtUser = (TextView) findViewById(R.id.txtUser);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -78,32 +67,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUi() {
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null) {
-            btnSignIn.setVisibility(View.VISIBLE);
-            btnSignOut.setVisibility(View.GONE);
-            txtEmail.setVisibility(View.GONE);
-            txtUser.setVisibility(View.GONE);
-            imgProfile.setImageBitmap(null);
-        } else {
-            btnSignIn.setVisibility(View.GONE);
-            btnSignOut.setVisibility(View.VISIBLE);
-            txtEmail.setVisibility(View.VISIBLE);
-            txtUser.setVisibility(View.VISIBLE);
-
-            txtUser.setText(user.getDisplayName());
-            txtEmail.setText(user.getEmail());
-//            Picasso.with(ActivityFUIAuth.this).load(user.getPhotoUrl()).into(imgProfile);
+        if (user != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
         }
-    }
-
-    public void signOut(View view) {
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(LoginActivity.this, "signed out succesfully ... ", Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 
     @Override
@@ -135,13 +102,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
-                        //.setIsSmartLockEnabled(false,true)
                         .setIsSmartLockEnabled(false)
                         .setAvailableProviders(providers)
                         //.setTheme(R.style.AppTheme)
-                        .setTosUrl("https://superapp.example.com/terms-of-service.html")
-                        .setPrivacyPolicyUrl("https://superapp.example.com/privacy-policy.html")
-//                        .setLogo(R.drawable.logo)
+                        .setLogo(R.drawable.android_logo)
                         .build(),
                 RC_SIGN_IN);
     }

@@ -8,12 +8,27 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/txtUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="userName" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtUser"
+        android:text="Password" />
+
     <Button
-        android:onClick="cerrarSesion"
-        android:id="@+id/btn_sign_out"
-        android:text="Cerrar Sesión"
+        android:id="@+id/btnSignOut"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="signOut"
+        android:text="Cerrar Sesión"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="558dp" />
 
 
 </LinearLayout>
