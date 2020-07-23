@@ -24,25 +24,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        txtEmail = (TextView) findViewById(R.id.txtEmail);
-        txtUser = (TextView) findViewById(R.id.txtUser);
-
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        txtUser.setText(user.getDisplayName());
-        txtEmail.setText(user.getEmail());
-    }
-
-    public void signOut(View view) {
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    public void onComplete(@NonNull Task<Void> task) {
-//                        Toast.makeText(MainActivity.this, "signed out succesfully ... ", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                    finish();
-                    }
-                });
     }
 }
