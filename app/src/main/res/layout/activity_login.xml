@@ -17,15 +17,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="signIn"
-            android:text="Sign In" />
+            android:text="Iniciar Sesión" />
 
         <Button
-            android:id="@+id/btnSignOut"
+            android:id="@+id/btnExit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="signOut"
-            android:text="Sign Out" />
+            android:onClick="exitApp"
+            android:text="Cerrar" />
+
+<!--        <Button-->
+<!--            android:id="@+id/btnSignOut"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:onClick="signOut"-->
+<!--            android:text="Sign Out" />-->
     </LinearLayout>
 
     <ImageView
@@ -33,18 +41,153 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/txtUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgProfile"
-        android:text="userName" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtUser"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/imgProfile"-->
+<!--        android:text="userName" />-->
 
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtUser"
-        android:text="Password" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtEmail"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/txtUser"-->
+<!--        android:text="Password" />-->
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="184dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <Button
+                android:id="@+id/button_miCuenta"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="miCuenta"
+                app:layout_constraintBottom_toTopOf="@+id/button_mapa"
+                app:layout_constraintEnd_toStartOf="@+id/button_misParcelas"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                android:onClick="toMiCuenta"/>
+
+            <Button
+                android:id="@+id/button_misParcelas"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginBottom="8dp"
+                android:text="misParcelas"
+                app:layout_constraintBottom_toTopOf="@+id/button_noticias"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toEndOf="@+id/button_miCuenta"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Button
+                android:id="@+id/button_mapa"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="mapa"
+                app:layout_constraintBottom_toTopOf="@+id/button_reclamos"
+                app:layout_constraintEnd_toStartOf="@+id/button_noticias"
+                app:layout_constraintHorizontal_bias="0.455"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_miCuenta" />
+
+            <Button
+                android:id="@+id/button_noticias"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginBottom="8dp"
+                android:text="noticias"
+                app:layout_constraintBottom_toTopOf="@+id/button_configuracion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_mapa"
+                app:layout_constraintTop_toBottomOf="@+id/button_misParcelas" />
+
+            <Button
+                android:id="@+id/button_reclamos"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="32dp"
+                android:text="reclamos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_configuracion"
+                app:layout_constraintHorizontal_bias="0.505"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_mapa" />
+
+            <Button
+                android:id="@+id/button_configuracion"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginBottom="32dp"
+                android:text="configuracion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_reclamos"
+                app:layout_constraintTop_toBottomOf="@+id/button_noticias" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.85" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.15" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
