@@ -30,7 +30,6 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
             String title = data.get("titulo");
             String msg = data.get("mensaje");
             sendNotification(title, msg);
-
         } else{
             RemoteMessage.Notification notification = remoteMessage.getNotification();
             String title = notification.getTitle();
@@ -38,11 +37,10 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
             sendNotification(title, msg);
         }
-
     }
 
     private void sendNotification(String title, String msg) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, MyNotification.NOTIFICATION_ID, intent, PendingIntent.FLAG_ONE_SHOT);
 
         MyNotification notification = new MyNotification(this, MyNotification.CHANNEL_ID_NOTIFICATIONS);
