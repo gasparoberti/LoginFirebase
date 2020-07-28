@@ -2,5 +2,6 @@
     <string name="app_name">Firebase</string>
     <string name="facebook_application_id" translatable="false">702949840287136</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb702949840287136</string>
+    <string name="notification_channel_group_general">General</string>
 
 </resources>

@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +27,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
         private static final int RC_SIGN_IN = 0;
-        private int cnt = 0;
+        private static final String TAG = "LoginActivity";
         private FirebaseAuth.AuthStateListener mAuthListener;
         private FirebaseAuth mAuth;
 
@@ -65,11 +66,9 @@ public class LoginActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
-            cnt = 0;
 
-//            for (String provider : AuthUI.SUPPORTED_PROVIDERS) {
-//                Log.v(this.getClass().getName(), provider);
-//            }
+            //Asi obtengo el id unico del dispositivo
+            Log.i(TAG, "KK: " + FirebaseInstanceId.getInstance().getToken());
 
             mAuth = FirebaseAuth.getInstance();
 
@@ -192,15 +191,5 @@ public class LoginActivity extends AppCompatActivity {
 
     public void exitApp(View view) {
         finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (cnt == 1){
-            Toast.makeText(this, "Presione otra vez para salir.", Toast.LENGTH_SHORT).show();
-        }else {
-            cnt ++;
-        }
     }
 }
