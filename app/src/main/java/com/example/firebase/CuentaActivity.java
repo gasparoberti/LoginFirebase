@@ -46,7 +46,6 @@ public class CuentaActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(CuentaActivity.this, "signed out succesfully ... ", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(CuentaActivity.this, LoginActivity.class));
                         finish();
                     }
                 });
